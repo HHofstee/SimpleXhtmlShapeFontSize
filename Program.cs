@@ -6,6 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using TallComponents.PDF.Layout;
 using TallComponents.PDF.Layout.Paragraphs;
+using TallComponents.PDF.Layout.Shapes;
+using TallComponents.PDF.Layout.Brushes;
+using TallComponents.PDF.Layout.Pens;
 
 namespace SimpleXhtmlShapeFontSize
 {
@@ -23,7 +26,21 @@ namespace SimpleXhtmlShapeFontSize
             xhtmlParagraph.Settings = conversionSettings;
             xhtmlParagraph.Text = Html();
 
-            section.Paragraphs.Add(xhtmlParagraph);
+            //section.Paragraphs.Add(xhtmlParagraph);
+
+            Drawing drawing = new Drawing(200, 200);
+            section.Paragraphs.Add(drawing);
+            PieShape pie = new PieShape();
+            pie.Pen = new Pen(System.Drawing.Color.Red, 2);
+            pie.Brush = new SolidBrush(System.Drawing.Color.Blue);
+            drawing.Shapes.Add(pie);
+
+            //drawing.Shapes.Add(new SimpleXhtmlShape()
+            //        {
+            //            DefaultFontSize = 18,
+            //            Text = Html(),
+            //        }
+            //);
 
             using (var file = new FileStream(@"..\..\result.pdf", FileMode.Create, FileAccess.Write))
             {
