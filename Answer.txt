@@ -1,0 +1,29 @@
+For each of the fontSizes we determine a factor:
+	xx-small = 1/(1.2 pow 3) = 0.5787037
+	x-small = 1 /(1.2 pow 2) = 0.69444444
+	small = 1/1.2 = 0.83333333
+	medium = 1
+	large = 1.2
+	x-large = 1.2 pow 2 = 1.44
+	xx-large = 1.2 pow 3 = 1.728
+	smaller = 1/1.2 = 0.8333333
+	larger = 1.2
+
+'larger' and 'smaller' are relative factors
+The result is: factor * intial_fontsize
+For relative factors, the inital_fontsize is replaced by the parent fonts-size
+
+
+When reading the css the following settings are used:
+
+	xx-small		8pt 
+	x-small		10pt 
+	small		12pt 
+	medium		16pt 
+	large		20pt 
+	x-large		24pt 
+	xx-large		36pt 
+	smaller		80% 
+	larger		120% 
+
+'smaller' and 'larger' are calculated relative to the shapes FontSize.
